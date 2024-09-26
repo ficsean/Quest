@@ -1,3 +1,25 @@
+__Checklist__  
+User Story 1:  
+- [x] Tkinter window  
+- [x] Create Quest Task  
+- [x] Read Quest Task  
+- [x] Update Quest Task  
+- [x] Delete Quest Task
+- [ ] Basic styling using ttkbootstrap
+  - [x] Message dialogs with bootstrap 
+  - [ ] favicon
+  - [ ] String input message dialogs
+
+
+
+
+
+
+
+
+
+
+
 __Quest (Task Management Application) = CRUD App__
 ==============================================
 
@@ -14,7 +36,7 @@ Objectives for Project:
 
 User Case Stories for why you should use the application:  
 
-1. User Story: Creating a Task (Read-Write-Update)  
+1. User Story: Creating a Task (Create, Read, Update, Delete)  
   
 - As a user, I want to create new tasks with a title, description, and due date
 So that I can organize and track my tasks efficiently.
