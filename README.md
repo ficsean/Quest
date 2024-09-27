@@ -10,6 +10,7 @@ User Story 1:
   - [ ] favicon
   - [ ] String input message dialogs
 
+<img width="454" alt="Screenshot 2024-09-26 at 8 36 00 PM" src="https://github.com/user-attachments/assets/8c2fd8ac-d57f-4276-b570-922f71893d0d">
 
 
 
