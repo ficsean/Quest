@@ -2,7 +2,8 @@ import tkinter as tk
 from tkinter import simpledialog, messagebox, Listbox, Scrollbar
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
-from ttkbootstrap.dialogs import Messagebox
+from ttkbootstrap.dialogs import *
+from ttkbootstrap.tableview import *
 
 
 class Quest:
@@ -28,6 +29,8 @@ class QuestManager:
 
         self.quest_listbox = Listbox(root, height=10, width=50)
         self.quest_listbox.pack(pady=10)
+        # self.quest_listbox = ttk.Treeview(root, column='Quest', bootstyle=PRIMARY)
+        # self.quest_listbox.pack(pady=10)
 
         self.add_button = ttk.Button(
             root, text="Add Quest", command=self.add_quest, bootstyle=PRIMARY
@@ -57,12 +60,12 @@ class QuestManager:
             self.quest_listbox.insert(ttk.END, quest)
 
     def add_quest(self):
-        quest_description = simpledialog.askstring(
+        quest_description = Querybox.get_string(
             "Add Quest", "Enter the quest description:"
         )
         if quest_description:
-            priority = simpledialog.askinteger(
-                "Add Quest", "Enter the priority (integer):"
+            priority = Querybox.get_integer(
+                "Add Quest Priority integer 1-4", "Enter the priority (integer):"
             )
             if priority is not None:
                 new_quest = Quest(quest_description, priority)
@@ -77,12 +80,12 @@ class QuestManager:
             Messagebox.show_warning("Edit Quest", "Please select a quest to edit.")
             return
         current_quest = self.quests[selected_index[0]]
-        new_description = simpledialog.askstring(
+        new_description = Querybox.get_string(
             "Edit Quest",
             "Enter the new quest description:",
             initialvalue=current_quest.description,
         )
-        new_priority = simpledialog.askinteger(
+        new_priority = Querybox.get_integer(
             "Edit Quest",
             "Enter the new priority (integer):",
             initialvalue=current_quest.priority,
@@ -126,6 +129,5 @@ class QuestManager:
 if __name__ == "__main__":
 
     root = ttk.Window(themename="darkly")
-
     app = QuestManager(root)
     root.mainloop()
