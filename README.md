@@ -41,13 +41,11 @@ User Case Stories for why you should use the application:
   
 - As a user, I want to create new tasks with a title, description, and due date
 So that I can organize and track my tasks efficiently.
-- - add delete
 
-2. ~~User Story: Setting Task Priorities (Update-Delete)~~
+2. User Story: Searching Tasks (Searching)
 
-- ~~As a user, I want to assign priority levels (e.g., Low, Medium, High) to tasks
-So that I can focus on the most important tasks first.~~
-   - - implement a search feature
+- As a user, I want to search my tasks
+So that I can find and read my tasks as fast as possible.
 
 3. User Story: Organizing Tasks into Categories (Sorting)  
 
