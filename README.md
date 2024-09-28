@@ -3,7 +3,9 @@ __Quest (Task Management Application) = CRUD App__
 
 Objectives for Project:  
 - Problem Solving  
-- Apply learned skills in RAD and Object-Oriented Analysis, Design and Implementation. 
+- Apply learned skills in
+  - RAD and Object-Oriented Analysis,
+  - Design and Implementation. 
 - Implementation Skills (Programming)  
 - GUI  
 - Basic Software Engineering  
@@ -12,19 +14,25 @@ Objectives for Project:
 
 ===============================================
 
+Technologies being used:
+- Python3
+  - tkinter
+  - ttkbootstrap
+  - pyinstaller (to make it into an executable at the end)
+
+===============================================
+
 User Case Stories for why you should use the application:  
 
-1. User Story: Creating a Task (Read-Write-Update)  
+1. User Story: Creating a Task (Create, Read, Update, Delete)  
   
 - As a user, I want to create new tasks with a title, description, and due date
 So that I can organize and track my tasks efficiently.
-- - add delete
 
-2. ~~User Story: Setting Task Priorities (Update-Delete)~~
+2. User Story: Searching Tasks (Searching)
 
-- ~~As a user, I want to assign priority levels (e.g., Low, Medium, High) to tasks
-So that I can focus on the most important tasks first.~~
-   - - implement a search feature
+- As a user, I want to search my tasks
+So that I can find and read my tasks as fast as possible.
 
 3. User Story: Organizing Tasks into Categories (Sorting)  
 
@@ -41,7 +49,7 @@ So that I can easily keep track of my progress and maintain an updated task list
 - As a user, I want to set reminders for tasks with specific dates and times
 So that I can receive notifications and ensure that I don’t miss deadlines.  
 
-(If, web-based) 6. User Story: Collaborating on Shared Tasks (Permissions)  
+6. (If, web-based) User Story: Collaborating on Shared Tasks (Permissions)  
 
 - As a user, I want to share tasks and assign them to other users
 So that I can collaborate with team members and manage group projects more effectively.  
