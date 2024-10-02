@@ -14,4 +14,4 @@ User Story 2:
 - [x] Update filtered Quest  
 - [x] Delete filtered Quest  
 
-![Example](https://gyazo.com/5a3e82a2635a033fb6e9fe0870cdf315)  
+![Example](https://i.gyazo.com/5a3e82a2635a033fb6e9fe0870cdf315.gif)  
