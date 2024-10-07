@@ -6,15 +6,25 @@ User Story 1:
 - [x] Update Quest Task  
 - [x] Delete Quest Task
 - [ ] Basic styling using ttkbootstrap
-  - [x] Message dialogs with bootstrap 
-  - [x] String input message dialogs
-  - [ ] Add Tableview ttkboostrap
+  - [x] Add Tableview ttkboostrap
     - Remove Listview of Tkinter
+  - [x] Added input fields Removed dialog boxes
   - [ ] favicon
+  - ~~[x] Message dialogs with bootstrap~~~ 
+  - ~~[x] String input message dialogs~~
 
+User Story 2:
+- [ ] Search functionality for quests
+
+Future User Story Implementations:
+- [ ] Add calendar
+- [ ] basic database (json or sqlite3)
+
+OLD RELEASE
 <img width="454" alt="Screenshot 2024-09-26 at 8 36 00 PM" src="https://github.com/user-attachments/assets/8c2fd8ac-d57f-4276-b570-922f71893d0d">
 
-
+LATEST RELEASE
+<img width="476" alt="Screenshot 2024-10-07 at 1 53 39 PM" src="https://github.com/user-attachments/assets/03ba6a5a-5d0d-4879-a0f1-e908bb35da2c">
 
 
 
