@@ -19,11 +19,11 @@ If used previously, show "Running" task with their title and date started on the
 If uses previously, show the search option to find a task you want to look/view/edit.
 
 Functions:
--Task Creation Function = In-progress
--Listbox (Hold Previous Made Tasks)  = In-progress
--Search function  = In-progress
--Edit function (for click and edit or search and view/edit)  = In-progress
--Quit Function  = In-progress
+- Task Creation Function = In-progress
+-  Listbox (Hold Previous Made Tasks)  = In-progress
+-  Search function  = In-progress
+-  Edit function (for click and edit or search and view/edit)  = In-progress
+-  Quit Function  = In-progress
 
 
 =======================
@@ -33,12 +33,12 @@ Scene 2
 Within "Create a Task", it will have Title of Task, Description that explains the task, Objectives/Side Missions to complete the task in-hand, and percentage meter for how close to completing Objectives/side missions (Checklist). Also, the possibility of deleting entire Objectives/Side Mission to add new set of Objectives/Side missions. Lastly, Finished editing task and official confirming the "Run" of a Task.
 
 Functions:
--Title = Completed
--Description = Completed
--Checklist (Objectives/Side Missions) = In-progress
--Percentage Meter with Mark for Completion) = Not Implemented Yet
--Delete  = Not Implemented Yet
--Run Task = In-progress
+-  Title = Completed
+-  Description = Completed
+-  Checklist (Objectives/Side Missions) = In-progress
+-  Percentage Meter with Mark for Completion) = Not Implemented Yet
+-  Delete  = Not Implemented Yet
+-  Run Task = In-progress
 
 =======================
 
@@ -47,10 +47,10 @@ Scene 3
 This is similar to the first Scene, it will show running tasks and user is able to view/edit/delete a task.
 
 Functions:
--Percentage by number shown right beside Task  = Not Implemented Yet
--List box (Tasks by Title) = In-progress
--Search Function (Allows for View/Edit/Delete similar to clicking the List box item) = Not Implemented Yet
--Quit Function = Completed  
+-  Percentage by number shown right beside Task  = Not Implemented Yet
+-  List box (Tasks by Title) = In-progress
+-  Search Function (Allows for View/Edit/Delete similar to clicking the List box item) = Not Implemented Yet
+-  Quit Function = Completed  
 
 
 
