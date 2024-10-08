@@ -6,6 +6,54 @@ This is only a preview/blueprint build of "Quest". NOT THE FINAL PRODUCT.
 ![5](https://github.com/user-attachments/assets/bb05d922-8b42-443e-9cb3-872ad6fb16cb)
 ![6](https://github.com/user-attachments/assets/59e52a83-7f92-4d69-b323-e686cfd1006c)
 
+Quest Hierarchy (Preview Expectations before developing the GUI)
+=======================
+Scene 1
+
+When opening the application, I want it to show the title of the application saying "Quest.IO".
+
+If never been used, it should ask if you would like to "Create a Task".
+
+If used previously, show "Running" task with their title and date started on the List box.
+
+If uses previously, show the search option to find a task you want to look/view/edit.
+
+Functions:
+-Task Creation Function = In-progress
+-Listbox (Hold Previous Made Tasks)  = In-progress
+-Search function  = In-progress
+-Edit function (for click and edit or search and view/edit)  = In-progress
+-Quit Function  = In-progress
+
+
+=======================
+
+Scene 2
+
+Within "Create a Task", it will have Title of Task, Description that explains the task, Objectives/Side Missions to complete the task in-hand, and percentage meter for how close to completing Objectives/side missions (Checklist). Also, the possibility of deleting entire Objectives/Side Mission to add new set of Objectives/Side missions. Lastly, Finished editing task and official confirming the "Run" of a Task.
+
+Functions:
+-Title = Completed
+-Description = Completed
+-Checklist (Objectives/Side Missions) = In-progress
+-Percentage Meter with Mark for Completion) = Not Implemented Yet
+-Delete  = Not Implemented Yet
+-Run Task = In-progress
+
+=======================
+
+Scene 3
+
+This is similar to the first Scene, it will show running tasks and user is able to view/edit/delete a task.
+
+Functions:
+-Percentage by number shown right beside Task  = Not Implemented Yet
+-List box (Tasks by Title) = In-progress
+-Search Function (Allows for View/Edit/Delete similar to clicking the List box item) = Not Implemented Yet
+-Quit Function = Completed  
+
+
+
 ==============================================
 
 __Quest (Task Management Application) = CRUD App__
