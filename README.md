@@ -6,4 +6,4 @@ User Story 3:
 User Story 4:  
 - [x] Mark quests for completion  
 
-![Example](v1.4/example.PNG)  
+![Example](v1.4/example.png)  
