@@ -146,12 +146,12 @@ class QuestView:
         self.tree.column("Due Date", width=80, anchor="w")
         self.tree.pack(pady=5, fill='x', expand=True)
 
-        scrollbar = Scrollbar(self.left_frame)
-        scrollbar.pack(side=ttk.RIGHT, fill=ttk.Y)
-        self.tree.config(yscrollcommand=scrollbar.set)
-        scrollbar.config(command=self.tree.yview)
+        # scrollbar = Scrollbar(self.left_frame)
+        # scrollbar.pack(side=ttk.RIGHT, fill=ttk.Y)
+        # self.tree.config(yscrollcommand=scrollbar.set)
+        # scrollbar.config(command=self.tree.yview)
 
-        button_frame = Frame(self.right_frame)
+        button_frame = Frame(self.left_frame)
         button_frame.pack(pady=5, fill='x')
 
         self.add_button = ttk.Button(
