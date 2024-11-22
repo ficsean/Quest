@@ -6,4 +6,4 @@ User Story 3:
 User Story 4:  
 - [x] Mark quests for completion  
 
-![Example](example.PNG)  
+<img width="1157" alt="Screenshot 2024-11-21 at 4 20 14 PM" src="https://github.com/user-attachments/assets/025c58c5-427a-47ed-b1e2-d7475d696edd">
