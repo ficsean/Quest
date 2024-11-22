@@ -1,22 +1,7 @@
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
-from tkinter import messagebox, Scrollbar, Frame
-from ttkbootstrap import Style, PhotoImage
-from ttkbootstrap.widgets import Treeview
-import json
-import datetime
-
-
-def is_valid_date(date_str):
-    try:
-        datetime.datetime.strptime(date_str, "%m-%d-%Y")
-        return True
-    except ValueError:
-        return False
-
-
-def is_valid_priority(priority):
-    return priority is not None and priority >= 1
+from ttkbootstrap import PhotoImage, Treeview
+import json, datetime
 
 
 class QuestModel:
@@ -111,6 +96,16 @@ class QuestController:
             if idx != exclude_index and quest.priority == priority:
                 return True
         return False
+    
+    def is_valid_date(self, date_str):
+        try:
+            datetime.datetime.strptime(date_str, "%m-%d-%Y")
+            return True
+        except ValueError:
+            return False
+
+    def is_valid_priority(self, priority):
+        return priority is not None and priority >= 1
 
 
 class QuestView:
@@ -120,78 +115,90 @@ class QuestView:
         self.root.title("Quest Manager")
 
         # Set the window icon (use a .png image file for cross-platform compatibility)
-        icon = PhotoImage(file='shaqqqIcon.png')  # image file
+        icon = PhotoImage(name='logo', file='shaqqqIcon.png')  # image file
         self.root.iconphoto(True, icon)
 
-        self.main_frame = Frame(root)
-        self.main_frame.pack(fill='both', expand=True)
+        self.main_frame = ttk.Frame(root)
+        # self.main_frame.pack(fill='both', expand=True)
+        self.main_frame.grid(row=0, column=0, sticky="nsew")  # Fill window
+        self.root.grid_rowconfigure(0, weight=1)  # Make main frame responsive
+        self.root.grid_columnconfigure(0, weight=1)
 
-        self.left_frame = Frame(self.main_frame)
-        self.left_frame.grid(row=0, column=0, sticky='nsew', padx=2, pady=2)
+        self.left_frame = ttk.Frame(self.main_frame)
+        self.left_frame.grid(row=0, column=0, sticky="nsew", padx=2, pady=2)
 
-        self.right_frame = Frame(self.main_frame)
-        self.right_frame.grid(row=0, column=1, sticky='nsew', padx=2, pady=2)
+        self.right_frame = ttk.Frame(self.main_frame)
+        self.right_frame.grid(row=0, column=1, sticky="nsew", padx=2, pady=2)
 
-        self.main_frame.grid_columnconfigure(0, weight=3)
-        self.main_frame.grid_columnconfigure(1, weight=1)
+        self.main_frame.grid_columnconfigure(0, weight=3)  # Left frame takes 3 parts
+        self.main_frame.grid_columnconfigure(1, weight=1)  # Right frame takes 1 part
+        self.main_frame.grid_rowconfigure(0, weight=1)  # Both frames grow vertically
+
+
+        # # Create a frame to hold the Treeview and its scrollbar
+        tree_frame = ttk.Frame(self.left_frame)
 
         self.tree = Treeview(self.left_frame, columns=("Title", "Priority", "Category", "Complete", "Description", "Due Date"), show="headings")
+        self.tree.pack(pady=5, fill='both', expand=True)
+        # Heading details
         self.tree.heading("Title", text="Title", anchor="w")
         self.tree.heading("Priority", text="Priority", anchor="w")
         self.tree.heading("Category", text="Category", anchor="w")
         self.tree.heading("Complete", text="Done?", anchor="w")
         self.tree.heading("Description", text="Description", anchor="w")
         self.tree.heading("Due Date", text="Due Date", anchor="w")
+        # column details
         self.tree.column("Title", width=150, anchor="w")
         self.tree.column("Priority", width=60, anchor="w")
         self.tree.column("Category", width=100, anchor="w")
         self.tree.column("Complete", width=40, anchor="w")
         self.tree.column("Description", width=300, anchor="w")
         self.tree.column("Due Date", width=80, anchor="w")
-        self.tree.pack(pady=5, fill='x', expand=True)
 
-        # scrollbar = Scrollbar(self.left_frame)
-        # scrollbar.pack(side=ttk.RIGHT, fill=ttk.Y)
-        # self.tree.config(yscrollcommand=scrollbar.set)
-        # scrollbar.config(command=self.tree.yview)
+        # Add a vertical scrollbar
+        scrollbar = ttk.Scrollbar(self.tree, orient="vertical", command=self.tree.yview)
+        scrollbar.pack(side="right", fill="y")  # Scrollbar on the right of Treeview
 
-        button_frame = Frame(self.left_frame)
+        # Link the Treeview to the scrollbar
+        self.tree.configure(yscrollcommand=scrollbar.set)
+
+        button_frame = ttk.Frame(self.left_frame)
         button_frame.pack(pady=5, fill='x')
 
         self.add_button = ttk.Button(
             button_frame, text="Add", command=self.show_add_quest_fields, bootstyle=PRIMARY, width=12
         )
-        self.add_button.pack(side=ttk.LEFT, padx=5)
+        self.add_button.pack(side=LEFT, expand=True, padx=5, pady=5)
 
         self.edit_button = ttk.Button(
             button_frame, text="Edit", command=self.show_edit_quest_fields, bootstyle=WARNING, width=12
         )
-        self.edit_button.pack(side=ttk.LEFT, padx=5)
+        self.edit_button.pack(side=LEFT, expand=True, padx=5, pady=5)
 
         self.complete_button = ttk.Button(
             button_frame, text="Complete", command=self.mark_complete, bootstyle=SUCCESS, width=12
         )
-        self.complete_button.pack(side=ttk.LEFT, padx=5)
+        self.complete_button.pack(side=LEFT, expand=True, padx=5, pady=5)
 
         self.delete_button = ttk.Button(
             button_frame, text="Delete", command=self.delete_quest, bootstyle=DANGER, width=12
         )
-        self.delete_button.pack(side=ttk.LEFT, padx=5)
+        self.delete_button.pack(side=LEFT, expand=True, padx=5, pady=5)
 
         self.save_button = ttk.Button(
             button_frame, text="Save", command=self.save_quests, bootstyle=SUCCESS, width=12
         )
-        self.save_button.pack(side=ttk.LEFT, padx=5)
+        self.save_button.pack(side=LEFT, expand=True, padx=5, pady=5)
 
         self.load_button = ttk.Button(
             button_frame, text="Load", command=self.load_quests, bootstyle=INFO, width=12
         )
-        self.load_button.pack(side=ttk.LEFT, padx=5)
+        self.load_button.pack(side=LEFT, expand=True, padx=5, pady=5)
 
         self.refresh_quests()
 
-        self.quest_form_frame = Frame(self.right_frame)
-        self.quest_form_frame.pack(pady=5, fill='x')
+        self.quest_form_frame = ttk.Frame(self.right_frame)
+        self.quest_form_frame.pack(fill="both", pady=5)
 
         self.title_entry = None
         self.description_entry = None
@@ -209,7 +216,8 @@ class QuestView:
         self.selected_quest_index = None
 
         self.message_label = ttk.Label(self.right_frame, text="", bootstyle=INFO)
-        self.message_label.pack(pady=5)
+        self.message_label.pack(pady=5, fill="x")
+
 
     def refresh_quests(self):
         for row in self.tree.get_children():
@@ -251,10 +259,10 @@ class QuestView:
         self.due_date_entry.pack(pady=3, padx=5)
 
         self.submit_button = ttk.Button(self.quest_form_frame, text="Add Quest", command=self.submit_add_quest, bootstyle=PRIMARY, width=12)
-        self.submit_button.pack(side=ttk.LEFT, padx=3, pady=3)
+        self.submit_button.pack(side=LEFT, padx=3, pady=3)
 
         self.cancel_button = ttk.Button(self.quest_form_frame, text="Cancel", command=self.cancel_add_quest, bootstyle=SECONDARY, width=12)
-        self.cancel_button.pack(side=ttk.LEFT, padx=3, pady=3)
+        self.cancel_button.pack(side=LEFT, padx=3, pady=3)
 
     def submit_add_quest(self):
         title = self.title_entry.get()
@@ -273,11 +281,11 @@ class QuestView:
             self.show_message("Priority must be a valid integer.", "warning")
             return
 
-        if not is_valid_priority(priority):
+        if not self.controller.is_valid_priority(priority):
             self.show_message("Priority must be an integer greater than or equal to 1.", "warning")
             return
 
-        if not is_valid_date(due_date):
+        if not self.controller.is_valid_date(due_date):
             self.show_message("Please enter a valid date in the format MM-DD-YYYY.", "warning")
             return
 
@@ -349,15 +357,15 @@ class QuestView:
 
         self.due_date_label = ttk.Label(self.quest_form_frame, text="Due Date (MM-DD-YYYY):")
         self.due_date_label.pack(pady=3, padx=5)
-        self.due_date_entry = ttk.Entry(self.quest_form_frame, width=30)
+        self.due_date_entry = ttk.Entry(self.quest_form_frame, bootstyle=PRIMARY, width=30)
         self.due_date_entry.insert(0, quest.due_date)
         self.due_date_entry.pack(pady=3, padx=5)
 
         self.submit_button = ttk.Button(self.quest_form_frame, text="Save Changes", command=self.submit_edit_quest, bootstyle=PRIMARY, width=12)
-        self.submit_button.pack(side=ttk.LEFT, padx=3, pady=3)
+        self.submit_button.pack(side=LEFT, padx=3, pady=3)
 
         self.cancel_button = ttk.Button(self.quest_form_frame, text="Cancel", command=self.cancel_edit_quest, bootstyle=SECONDARY, width=12)
-        self.cancel_button.pack(side=ttk.LEFT, padx=3, pady=3)
+        self.cancel_button.pack(side=LEFT, padx=3, pady=3)
 
     def submit_edit_quest(self):
         title = self.title_entry.get()
@@ -376,11 +384,11 @@ class QuestView:
             self.show_message("Priority must be a valid integer.", "warning")
             return
 
-        if not is_valid_priority(priority):
+        if not self.controller.is_valid_priority(priority):
             self.show_message("Priority must be an integer greater than or equal to 1.", "warning")
             return
 
-        if not is_valid_date(due_date):
+        if not self.controller.is_valid_date(due_date):
             self.show_message("Please enter a valid date in the format MM-DD-YYYY.", "warning")
             return
 
