@@ -120,7 +120,7 @@ class QuestView:
         self.root.title("Quest Manager")
 
         # Set the window icon (use a .png image file for cross-platform compatibility)
-        icon = PhotoImage(file='questImage.png')  # image file
+        icon = PhotoImage(file='shaqqqIcon.png')  # image file
         self.root.iconphoto(True, icon)
 
         self.main_frame = Frame(root)
