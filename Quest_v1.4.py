@@ -1,7 +1,7 @@
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 from tkinter import messagebox, Scrollbar, Frame
-from ttkbootstrap import Style
+from ttkbootstrap import Style, PhotoImage
 from ttkbootstrap.widgets import Treeview
 import json
 import datetime
@@ -118,6 +118,10 @@ class QuestView:
         self.controller = controller
         self.root = root
         self.root.title("Quest Manager")
+
+        # Set the window icon (use a .png image file for cross-platform compatibility)
+        icon = PhotoImage(file='questImage.png')  # image file
+        self.root.iconphoto(True, icon)
 
         self.main_frame = Frame(root)
         self.main_frame.pack(fill='both', expand=True)
